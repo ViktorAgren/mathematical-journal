@@ -9,7 +9,8 @@ export const LatexBlock = ({ equation, description }) => {
           tex={equation}
           display={true}
           style={{
-            fontSize: '1.1em',
+            fontSize: '1.125em',
+            color: 'var(--text-primary)',
           }}
         />
       </div>

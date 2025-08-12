@@ -3,9 +3,10 @@ import React from 'react';
 export const Theorem = ({ title, children }) => {
   return (
     <div className="theorem-block">
-      {title && (
-        <h4 className="theorem-title">{title}</h4>
-      )}
+      <div className="theorem-header">
+        <div className="theorem-label">Theorem</div>
+        {title && <div className="theorem-title">{title}</div>}
+      </div>
       <div className="theorem-content">
         {children}
       </div>

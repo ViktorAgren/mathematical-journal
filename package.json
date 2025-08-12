@@ -1,6 +1,6 @@
 {
-  "name": "ridge-regression",
-  "homepage": "https://viktoragren.github.io/ridge-regression",
+  "name": "mathematical-journal",
+  "homepage": "https://viktoragren.github.io/mathematical-journal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

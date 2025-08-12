@@ -9,6 +9,7 @@ export const InlineMath = ({ tex }) => {
         display={false}
         style={{
           fontSize: '1em',
+          color: 'var(--text-primary)',
         }}
       />
     </span>
