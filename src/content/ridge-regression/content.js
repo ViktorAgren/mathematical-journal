@@ -14,15 +14,15 @@ export const RidgeRegressionContent = () => {
         </h2>
 
         <p>
-          Picture this: You're managing a $50 million equity portfolio, and your quantitative model just recommended going long Netflix and short Disney based on your "streaming wars" factor. Yesterday, the same model with 99% identical data suggested the exact opposite trade. Your investors are asking uncomfortable questions, and you're staring at a classic case of what financial engineers call "parameter instability" . but what's really happening is far more fundamental.
+          Picture this: You're managing a $50 million equity portfolio, and your quantitative model just recommended going long Netflix and short Disney based on your "streaming wars" factor. Yesterday, the same model with 99% identical data suggested the exact opposite trade. Your investors are asking uncomfortable questions, and you're staring at a classic case of what financial engineers call "parameter instability". but what's really happening is far more fundamental.
         </p>
 
         <p>
-          You're not dealing with a bug in your code. You're facing the central challenge of modern finance: <strong>multicollinearity</strong>. Netflix and Disney don't just happen to correlate . they're fighting the same battle, responding to the same consumer trends, competing for the same subscriber dollars. When you try to separate their individual effects using traditional regression, you're essentially asking: "If Netflix goes up 1% while Disney stays perfectly flat, what happens to the market?" It's a reasonable question with an impossible answer, because in the real world, Disney never stays flat when Netflix moves.
+          You're not dealing with a bug in your code. You're facing the central challenge of modern finance: <strong>multicollinearity</strong>. Netflix and Disney don't just happen to correlate. they're fighting the same battle, responding to the same consumer trends, competing for the same subscriber dollars. When you try to separate their individual effects using traditional regression, you're essentially asking: "If Netflix goes up 1% while Disney stays perfectly flat, what happens to the market?" It's a reasonable question with an impossible answer, because in the real world, Disney never stays flat when Netflix moves.
         </p>
 
         <p>
-          Ridge regression doesn't solve this problem by being smarter about correlation . it solves it by being <em>humble</em>. Instead of pretending it can perfectly disentangle Netflix from Disney, it admits uncertainty and spreads the risk. It's the difference between a cocky trader who claims to know exactly which tech stock will outperform, and a wise investor who acknowledges that tech stocks rise and fall together, so maybe . just maybe . the smart money is on diversification.
+          Ridge regression doesn't solve this problem by being smarter about correlation. it solves it by being <em>humble</em>. Instead of pretending it can perfectly disentangle Netflix from Disney, it admits uncertainty and spreads the risk. It's the difference between a cocky trader who claims to know exactly which tech stock will outperform, and a wise investor who acknowledges that tech stocks rise and fall together, so maybe. just maybe. the smart money is on diversification.
         </p>
 
         <h2 className="section-title">
@@ -30,7 +30,7 @@ export const RidgeRegressionContent = () => {
         </h2>
 
         <p>
-          Let's get concrete. You're building a model to predict S&P 500 returns using 20 different factors: sector momentum, earnings revisions, technical indicators, macro data. You have 250 trading days of data . about one year. In the machine learning world, this is a dream scenario: 250 samples, 20 features, clean data. Your model should work beautifully.
+          Let's get concrete. You're building a model to predict S&P 500 returns using 20 different factors: sector momentum, earnings revisions, technical indicators, macro data. You have 250 trading days of data. about one year. In the machine learning world, this is a dream scenario: 250 samples, 20 features, clean data. Your model should work beautifully.
         </p>
 
         <p>
@@ -46,12 +46,12 @@ export const RidgeRegressionContent = () => {
         </p>
 
         <p>
-          What changed? Almost nothing in the market, but everything in your model. This isn't a failure of your analysis . it's the inevitable result of trying to solve an <em>ill-conditioned</em> problem. When your predictors are correlated (and in finance, they always are), ordinary least squares doesn't just give you the best answer . it gives you one of infinitely many answers that fit the data equally well.
+          What changed? Almost nothing in the market, but everything in your model. This isn't a failure of your analysis. it's the inevitable result of trying to solve an <em>ill-conditioned</em> problem. When your predictors are correlated (and in finance, they always are), ordinary least squares doesn't just give you the best answer. it gives you one of infinitely many answers that fit the data equally well.
         </p>
 
         <Note>
           <p>
-            <strong>The Correlation Reality Check:</strong> In a typical equity factor model, correlations between predictors often exceed 0.7. Technology stocks correlate at 0.85+, sector momentum factors at 0.6+, and macroeconomic indicators show complex interdependencies. When predictors correlate above 0.9, ordinary least squares becomes practically unusable . your model will change dramatically with each new observation.
+            <strong>The Correlation Reality Check:</strong> In a typical equity factor model, correlations between predictors often exceed 0.7. Technology stocks correlate at 0.85+, sector momentum factors at 0.6+, and macroeconomic indicators show complex interdependencies. When predictors correlate above 0.9, ordinary least squares becomes practically unusable. your model will change dramatically with each new observation.
           </p>
         </Note>
 
@@ -60,13 +60,13 @@ export const RidgeRegressionContent = () => {
         </h2>
 
         <p>
-          The math here isn't abstract . it's the difference between profit and loss. Let's say you're trying to predict tomorrow's return <InlineMath tex="y" /> using today's factor exposures <InlineMath tex="x_1, x_2, \ldots, x_p" />. You believe the relationship follows:
+          The math here isn't abstract. it's the difference between profit and loss. Let's say you're trying to predict tomorrow's return <InlineMath tex="y" /> using today's factor exposures <InlineMath tex="x_1, x_2, \ldots, x_p" />. You believe the relationship follows:
         </p>
 
         <LatexBlock equation="y = \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \epsilon" />
 
         <p>
-          Those <InlineMath tex="\beta" /> coefficients aren't just numbers . they're your portfolio weights, your risk allocations, your bet on which factors matter. Ordinary least squares finds the <InlineMath tex="\beta" /> values that minimize prediction error:
+          Those <InlineMath tex="\beta" /> coefficients aren't just numbers. they're your portfolio weights, your risk allocations, your bet on which factors matter. Ordinary least squares finds the <InlineMath tex="\beta" /> values that minimize prediction error:
         </p>
 
         <LatexBlock equation="\hat{\beta}_{\text{OLS}} = \underset{\beta}{\arg\min} \sum_{i=1}^n (y_i - x_i^T \beta)^2" />
@@ -78,7 +78,7 @@ export const RidgeRegressionContent = () => {
         <LatexBlock equation="\hat{\beta}_{\text{OLS}} = (X^T X)^{-1} X^T y" />
 
         <p>
-          The problem lurks in that innocent-looking inverse: <InlineMath tex="(X^T X)^{-1}" />. When your predictors are highly correlated . which they are in finance . this matrix becomes nearly <em>singular</em>. It's like trying to divide by a number very close to zero: mathematically possible, but practically disastrous.
+          The problem lurks in that innocent-looking inverse: <InlineMath tex="(X^T X)^{-1}" />. When your predictors are highly correlated. which they are in finance. this matrix becomes nearly <em>singular</em>. It's like trying to divide by a number very close to zero: mathematically possible, but practically disastrous.
         </p>
 
         <Theorem title="The Instability Theorem">
@@ -112,7 +112,7 @@ export const RidgeRegressionContent = () => {
         <LatexBlock equation="\hat{\beta}_{\text{Ridge}} = (X^T X + \lambda I)^{-1} X^T y" />
 
         <p>
-          By adding <InlineMath tex="\lambda I" /> to the matrix, Ridge regression ensures that <InlineMath tex="X^T X + \lambda I" /> is always invertible, even when <InlineMath tex="X^T X" /> isn't. It's like adding a small amount of sand to a slippery surface . it provides the traction needed for stability.
+          By adding <InlineMath tex="\lambda I" /> to the matrix, Ridge regression ensures that <InlineMath tex="X^T X + \lambda I" /> is always invertible, even when <InlineMath tex="X^T X" /> isn't. It's like adding a small amount of sand to a slippery surface. it provides the traction needed for stability.
         </p>
 
         <h2 className="section-title">
@@ -120,11 +120,11 @@ export const RidgeRegressionContent = () => {
         </h2>
 
         <p>
-          Here's where Ridge regression gets philosophically interesting for investors. Traditional statistics teaches us that unbiased estimators are good . we want our predictions to be "correct on average." But in finance, being unbiased isn't worth much if you're also wildly inconsistent.
+          Here's where Ridge regression gets philosophically interesting for investors. Traditional statistics teaches us that unbiased estimators are good. we want our predictions to be "correct on average." But in finance, being unbiased isn't worth much if you're also wildly inconsistent.
         </p>
 
         <p>
-          Ridge regression deliberately introduces <em>bias</em> to reduce <em>variance</em>. In portfolio terms: it's willing to be slightly wrong on average if it means being much more stable day-to-day. This isn't a bug . it's the core insight.
+          Ridge regression deliberately introduces <em>bias</em> to reduce <em>variance</em>. In portfolio terms: it's willing to be slightly wrong on average if it means being much more stable day-to-day. This isn't a bug. it's the core insight.
         </p>
 
         <Theorem title="Bias-Variance Decomposition">
@@ -445,7 +445,7 @@ if __name__ == "__main__":
         </h2>
 
         <p>
-          Ridge regression teaches us something profound about financial modeling: the goal isn't to find the "true" model . it's to find a <em>useful</em> model. In a world where Netflix and Disney move together, pretending you can perfectly separate their individual effects is hubris. Admitting that you can't, and building models that account for this uncertainty, is wisdom.
+          Ridge regression teaches us something profound about financial modeling: the goal isn't to find the "true" model. it's to find a <em>useful</em> model. In a world where Netflix and Disney move together, pretending you can perfectly separate their individual effects is hubris. Admitting that you can't, and building models that account for this uncertainty, is wisdom.
         </p>
 
         <p>
@@ -453,7 +453,7 @@ if __name__ == "__main__":
         </p>
 
         <p>
-          When your Ridge-regularized model tells you that technology momentum has a coefficient of 0.3 instead of 0.8, it's not being imprecise . it's being honest about the uncertainty inherent in financial markets. That honesty is what keeps your portfolio stable when correlations shift, volatility spikes, and the market reminds everyone that past performance doesn't guarantee future results.
+          When your Ridge-regularized model tells you that technology momentum has a coefficient of 0.3 instead of 0.8, it's not being imprecise. it's being honest about the uncertainty inherent in financial markets. That honesty is what keeps your portfolio stable when correlations shift, volatility spikes, and the market reminds everyone that past performance doesn't guarantee future results.
         </p>
 
         <Theorem title="The Regularization Principle in Finance">
@@ -471,7 +471,7 @@ if __name__ == "__main__":
         </p>
 
         <p>
-          Ridge regression doesn't just solve a statistical problem . it embodies a philosophy of robust decision-making under uncertainty. In finance, that philosophy isn't just mathematically elegant; it's profitable.
+          Ridge regression doesn't just solve a statistical problem. it embodies a philosophy of robust decision-making under uncertainty. In finance, that philosophy isn't just mathematically elegant; it's profitable.
         </p>
       </section>
     </>
