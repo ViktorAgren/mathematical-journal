@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mathematical-journal/static/css/main.d07c180c.css",
+    "main.js": "/mathematical-journal/static/js/main.d8c1a3bb.js",
+    "index.html": "/mathematical-journal/index.html",
+    "main.d07c180c.css.map": "/mathematical-journal/static/css/main.d07c180c.css.map",
+    "main.d8c1a3bb.js.map": "/mathematical-journal/static/js/main.d8c1a3bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d07c180c.css",
+    "static/js/main.d8c1a3bb.js"
+  ]
+}
