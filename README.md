@@ -1,6 +1,6 @@
 # Mathematical Journal
 
-A web-based platform for publishing mathematical papers with interactive code examples and LaTeX rendering. Built with React 18 and designed for academic-quality mathematical content presentation.
+A web-based platform for publishing mathematical papers with interactive code examples and LaTeX rendering. 
 
 ## Current Papers
 
@@ -52,11 +52,3 @@ src/
 1. Create content directory in `src/content/[paper-name]/`
 2. Add `content.js` with paper component
 3. Update `src/content/papers.js` with metadata
-
-## Technical Stack
-
-- React 18 with functional components
-- MathJax 3 for LaTeX mathematical notation
-- React Syntax Highlighter for code blocks
-- CSS Grid and Flexbox for responsive layout
-- GitHub Pages for deployment
