@@ -795,6 +795,98 @@ p + p {
   overflow-x: auto;
 }
 
+/* Collapsible Code Styles */
+.collapsible-code .code-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.code-expand-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: white;
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  transition: all var(--transition-fast);
+}
+
+.code-expand-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.code-expand-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.code-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.code-expand-footer-btn {
+  background: none;
+  border: 1px solid var(--border-medium);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: all var(--transition-fast);
+}
+
+.code-expand-footer-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+/* Visualization Styles */
+.visualization-container {
+  margin: var(--space-6) 0;
+  padding: var(--space-4);
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.visualization-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4) 0;
+  text-align: center;
+}
+
+.visualization-canvas-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.visualization-canvas {
+  border-radius: 4px;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+}
+
 /* Interactive Demo Styles */
 .demo-container {
   margin: var(--space-8) 0;

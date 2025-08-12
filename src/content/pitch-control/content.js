@@ -1,9 +1,10 @@
 import React from "react";
-import { CodeWindow } from "../../components/CodeWindow";
+import { CollapsibleCodeWindow } from "../../components/CollapsibleCodeWindow";
 import { LatexBlock } from "../../components/LatexBlock";
 import { Theorem } from "../../components/Theorem";
 import { Note } from "../../components/Note";
 import { InlineMath } from "../../components/InlineMath";
+import { Visualization } from "../../components/Visualization";
 
 export const PitchControlContent = () => {
   return (
@@ -14,7 +15,7 @@ export const PitchControlContent = () => {
         </h2>
 
         <p>
-          It's May 2022, and Liverpool is trailing Real Madrid 3-1 in the Champions League final. The camera zooms in on Jürgen Klopp as he frantically gestures to his players during a corner kick. What the viewers don't see is the invisible mathematical battlefield unfolding on the pitch – a complex geometric dance of spatial control that will determine whether Liverpool can mount a comeback or Madrid can close out the game.
+          It's May 2022, and Liverpool is trailing Real Madrid 3-1 in the Champions League final. The camera zooms in on Jürgen Klopp as he frantically gestures to his players during a corner kick. What the viewers don't see is the invisible mathematical battlefield unfolding on the pitch: a complex geometric dance of spatial control that will determine whether Liverpool can mount a comeback or Madrid can close out the game.
         </p>
 
         <p>
@@ -22,7 +23,7 @@ export const PitchControlContent = () => {
         </p>
 
         <p>
-          This is the world that Liverpool FC and DeepMind entered when they decided to revolutionize how we understand football tactics. Their TacticAI system doesn't just analyze what happened – it models the invisible forces that determine what <em>can</em> happen. It's the difference between watching a chess game and understanding the theory of optimal play.
+          This is the world that Liverpool FC and DeepMind entered when they decided to revolutionize how we understand football tactics. Their TacticAI system doesn't just analyze what happened. It models the invisible forces that determine what <em>can</em> happen. It's the difference between watching a chess game and understanding the theory of optimal play.
         </p>
 
         <h2 className="section-title">
@@ -79,9 +80,25 @@ export const PitchControlContent = () => {
           </p>
           <LatexBlock equation="\sum_{i=1}^{22} C_i(t) = |Pitch| = \text{constant}" />
           <p>
-            where <InlineMath tex="C_i(t)" /> is the spatial control of player <InlineMath tex="i" /> at time <InlineMath tex="t" />. Tactical movements don't create control – they redistribute it from opponents to teammates.
+            where <InlineMath tex="C_i(t)" /> is the spatial control of player <InlineMath tex="i" /> at time <InlineMath tex="t" />. Tactical movements don't create control. They redistribute it from opponents to teammates.
           </p>
         </Theorem>
+
+        <Visualization 
+          type="pitch-control" 
+          title="Pitch Control Map: Team Territorial Dominance"
+          width={600} 
+          height={400}
+          data={{
+            players: [
+              { x: 0.2, y: 0.5, team: 'A' },
+              { x: 0.4, y: 0.3, team: 'A' },
+              { x: 0.6, y: 0.7, team: 'A' },
+              { x: 0.8, y: 0.4, team: 'B' },
+              { x: 0.7, y: 0.6, team: 'B' }
+            ]
+          }}
+        />
 
         <h2 className="section-title">
           How DeepMind Taught Computers to See Like Pep Guardiola
@@ -145,6 +162,14 @@ export const PitchControlContent = () => {
           </p>
         </Note>
 
+        <Visualization 
+          type="corner-kick-setup" 
+          title="TacticAI Optimized Corner Kick Formation"
+          width={600} 
+          height={450}
+          data={{}}
+        />
+
         <h2 className="section-title">
           Reading the Invisible Game
         </h2>
@@ -207,7 +232,7 @@ export const PitchControlContent = () => {
           The fundamental insight is that complex systems often have hidden geometric structures that determine their behavior. By learning to see these structures and understand their mathematical properties, we can optimize performance in ways that would be impossible through intuition alone.
         </p>
 
-        <CodeWindow
+        <CollapsibleCodeWindow
           language="python"
           title="Pitch Control Implementation"
           code={`
